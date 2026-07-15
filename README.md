@@ -1,75 +1,172 @@
-# React + TypeScript + Vite
+# OneInstall
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+  <img src="build/icon.ico" alt="OneInstall Logo" width="120"/>
+</p>
 
-Currently, two official plugins are available:
+<p align="center">
+  <strong>A modern Windows package installer built with Electron and React.</strong>
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+<p align="center">
+  Install your favorite software in one click using the Windows Package Manager (Winget).
+</p>
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+- 🚀 One-click software installation
+- 🔍 Search thousands of applications
+- ⭐ Save favorite apps
+- 📦 Install multiple applications
+- 🎨 Modern and responsive UI
+- ⚡ Powered by Winget
+- 💻 Windows 10 & Windows 11 support
+- 🌓 Light & Dark theme support
+- 🔄 Easy software management
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📸 Screenshots
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+> [Add screenshots here](https://prnt.sc/T449L4b1CDBj)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Home | Search | Favorites |
+|------|--------|-----------|
+| ![](https://prnt.sc/T449L4b1CDBj) | ![](docs/search.png) | ![](docs/favorites.png) |
 
+---
+
+## 🛠️ Built With
+
+- Electron
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS
+- Zustand
+- Windows Package Manager (Winget)
+
+---
+
+## 📥 Installation
+
+Download the latest release from the Releases page.
+
+https://github.com/Snokei/OneInstall/releases/latest
+
+Or clone the repository.
+
+```bash
+git clone https://github.com/Snokei/OneInstall.git
+cd OneInstall
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Run in development mode:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+npm run electron:dev
+```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Build the application:
+
+```bash
+npm run dist
+```
+
+---
+
+## 📦 Requirements
+
+- Windows 10 (1809+) or Windows 11
+- Winget installed
+- Internet connection
+
+---
+
+## 📁 Project Structure
 
 ```
+.
+├── dist/
+├── dist-electron/
+├── public/
+├── src/
+├── build/
+├── package.json
+└── README.md
+```
+
+---
+
+## 🚀 Roadmap
+
+- [x] Search packages
+- [x] Install software
+- [x] Favorites
+- [ ] Update installed software
+- [ ] Uninstall software
+- [ ] Export/Import favorite lists
+- [ ] Package categories
+- [ ] Application ratings
+- [ ] Auto updates
+- [ ] Multi-language support
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repository
+2. Create your feature branch
+
+```bash
+git checkout -b feature/AmazingFeature
+```
+
+3. Commit your changes
+
+```bash
+git commit -m "Add AmazingFeature"
+```
+
+4. Push to the branch
+
+```bash
+git push origin feature/AmazingFeature
+```
+
+5. Open a Pull Request
+
+---
+
+## 🐛 Issues
+
+If you encounter any bugs or have feature requests, please create an issue.
+
+https://github.com/Snokei/OneInstall/issues
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## ⭐ Support
+
+If you like this project, consider giving it a ⭐ on GitHub.
+
+It helps others discover the project and motivates future development.
+
+---
+
+## 👨‍💻 Author
+
+**Neel**
+
+GitHub: https://github.com/Snokei
