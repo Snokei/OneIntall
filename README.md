@@ -1,13 +1,13 @@
 # OneInstall
 
 <p align="center">
-  <img src="build/icon.ico" alt="OneInstall Logo" width="120"/>
+  <img src="build/icon.ico" alt="OneInstall Logo" width="120">
 </p>
 
 <h1 align="center">OneInstall</h1>
 
 <p align="center">
-  <strong>A modern Windows package manager built with Electron, React and Winget.</strong>
+  <strong>A modern Windows package manager built with Electron, React, TypeScript and Winget.</strong>
 </p>
 
 <p align="center">
@@ -16,27 +16,33 @@
 
 <p align="center">
 
-![Platform](https://img.shields.io/badge/Platform-Windows%2010%20%26%2011-0078D6?style=for-the-badge)
-![Electron](https://img.shields.io/badge/Electron-43-blue?style=for-the-badge)
-![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge)
-![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+[![Latest Release](https://img.shields.io/github/v/release/Snokei/OneInstall?style=for-the-badge)](https://github.com/Snokei/OneInstall/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/Snokei/OneInstall/total?style=for-the-badge)](https://github.com/Snokei/OneInstall/releases/latest)
+[![Stars](https://img.shields.io/github/stars/Snokei/OneInstall?style=for-the-badge)](https://github.com/Snokei/OneInstall/stargazers)
+[![License](https://img.shields.io/github/license/Snokei/OneInstall?style=for-the-badge)](LICENSE)
 
+</p>
+
+<p align="center">
+  <a href="https://github.com/Snokei/OneInstall/releases/latest">
+    <img src="https://img.shields.io/badge/⬇%20Download-Latest%20Release-blue?style=for-the-badge" alt="Download">
+  </a>
 </p>
 
 ---
 
-## ✨ Features
+# ✨ Features
 
-- 🚀 Install Windows applications in one click
-- 🔍 Fast package search powered by Winget
-- ⭐ Save your favorite applications
-- 📦 Install multiple applications
-- ⚡ Lightweight and fast
-- 🎨 Modern UI built with React
-- 🌓 Light & Dark theme
+- 🚀 One-click application installation
+- 🔍 Fast package search
+- ⭐ Favorite applications
+- 📦 Batch installation support
+- 🎨 Modern and clean interface
+- ⚡ Powered by Windows Package Manager (Winget)
 - 💻 Windows 10 & Windows 11 support
-- 🔄 Easy software management
+- 🌙 Light & Dark mode
+- 🔄 Fast package management
+- ❤️ Completely Free & Open Source
 
 ---
 
@@ -45,7 +51,7 @@
 ## 🏠 Home
 
 <p align="center">
-  <img src="assets/home.png" alt="OneInstall Home" width="1000">
+    <img src="assets/home.png" alt="Home" width="1000">
 </p>
 
 ---
@@ -53,7 +59,7 @@
 ## 🔍 Search
 
 <p align="center">
-  <img src="assets/search.png" alt="OneInstall Search" width="1000">
+    <img src="assets/search.png" alt="Search" width="1000">
 </p>
 
 ---
@@ -61,11 +67,20 @@
 ## 📦 Installation
 
 <p align="center">
-  <img src="assets/install.png" alt="OneInstall Installation" width="1000">
+    <img src="assets/install.png" alt="Installation" width="1000">
 </p>
+
 ---
 
-## 🛠 Built With
+# 🚀 Download
+
+Download the latest version from GitHub Releases.
+
+👉 **https://github.com/Snokei/OneInstall/releases/latest**
+
+---
+
+# 🛠 Built With
 
 - Electron
 - React 19
@@ -77,34 +92,34 @@
 
 ---
 
-## 🚀 Getting Started
+# ⚡ Getting Started
 
-### Clone the repository
+## Clone Repository
 
 ```bash
 git clone https://github.com/Snokei/OneInstall.git
 cd OneInstall
 ```
 
-### Install dependencies
+## Install Dependencies
 
 ```bash
 npm install
 ```
 
-### Start development
+## Run Development
 
 ```bash
 npm run electron:dev
 ```
 
-### Build production
+## Build Production
 
 ```bash
 npm run dist
 ```
 
-The generated installer will be available in:
+The generated installer will be available inside:
 
 ```
 release/
@@ -112,18 +127,23 @@ release/
 
 ---
 
-## 📦 Requirements
+# 📦 Requirements
 
 - Windows 10 (1809+) or Windows 11
-- Winget installed
+- Windows Package Manager (Winget)
 - Internet connection
 
 ---
 
-## 📁 Project Structure
+# 📁 Project Structure
 
 ```
 OneInstall
+│
+├── assets/
+│   ├── home.png
+│   ├── install.png
+│   └── search.png
 │
 ├── build/
 ├── dist/
@@ -131,7 +151,6 @@ OneInstall
 ├── electron/
 ├── public/
 ├── src/
-│   ├── assets/
 │   ├── components/
 │   ├── data/
 │   ├── hooks/
@@ -139,7 +158,9 @@ OneInstall
 │   ├── pages/
 │   ├── store/
 │   ├── SVG/
-│   └── App.tsx
+│   ├── types/
+│   ├── App.tsx
+│   └── main.tsx
 │
 ├── package.json
 └── README.md
@@ -147,74 +168,111 @@ OneInstall
 
 ---
 
-## 🚀 Roadmap
+# 🚀 Roadmap
 
 - ✅ Search applications
 - ✅ Install applications
 - ✅ Favorites
+- ✅ Batch installation
 - ✅ Modern UI
-- ⏳ Update installed software
-- ⏳ Uninstall software
+- ⏳ Update installed applications
+- ⏳ Uninstall applications
 - ⏳ Categories
 - ⏳ Export / Import favorites
+- ⏳ Package details
 - ⏳ Automatic updates
 - ⏳ Multi-language support
 
 ---
 
-## 🤝 Contributing
+# 🤝 Contributing
 
-Contributions are welcome!
+Contributions are always welcome.
+
+1. Fork the repository
+
+2. Create a feature branch
 
 ```bash
-# Fork the repository
-
-# Create a branch
 git checkout -b feature/my-feature
+```
 
-# Commit your changes
-git commit -m "Add new feature"
+3. Commit your changes
 
-# Push
+```bash
+git commit -m "Added awesome feature"
+```
+
+4. Push to GitHub
+
+```bash
 git push origin feature/my-feature
 ```
 
-Finally, open a Pull Request.
+5. Open a Pull Request
 
 ---
 
-## 🐞 Bug Reports
+# 🐞 Report Issues
 
-Found a bug?
+Found a bug or have a feature request?
 
-Please open an issue:
+Please create an issue here:
 
 https://github.com/Snokei/OneInstall/issues
 
 ---
 
-## ⭐ Support
+# ❤️ Why OneInstall?
 
-If you like this project, please consider giving it a ⭐ on GitHub.
+OneInstall provides a modern interface for Microsoft's Windows Package Manager (Winget), making software installation easier and more accessible.
 
-It helps the project grow and motivates future development.
+Instead of memorizing package names or typing commands in the terminal, users can browse, search and install applications with just a few clicks.
+
+Perfect for:
+
+- 👨‍💻 Developers
+- 🎮 Gamers
+- 🎨 Designers
+- 🏢 Office users
+- 🎓 Students
 
 ---
 
-## 📄 License
+# ⭐ Support
+
+If you like OneInstall, please consider:
+
+⭐ Starring the repository
+
+🐞 Reporting bugs
+
+💡 Suggesting new features
+
+❤️ Sharing it with others
+
+Every contribution helps improve the project.
+
+---
+
+# 📄 License
 
 This project is licensed under the MIT License.
 
 ---
 
-## 👨‍💻 Author
+# 👨‍💻 Author
 
 **Neel**
 
-GitHub: https://github.com/Snokei
+GitHub
+
+https://github.com/Snokei
 
 ---
 
 <p align="center">
-Made with ❤️ using Electron + React
+
+Made with ❤️ using Electron, React & TypeScript
+
 </p>
