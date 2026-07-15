@@ -30,7 +30,7 @@
 
 ## 📸 Screenshots
 
-> Add screenshots here
+> [Add screenshots here](https://prnt.sc/T449L4b1CDBj)
 
 | Home | Search | Favorites |
 |------|--------|-----------|
