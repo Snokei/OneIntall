@@ -26,6 +26,5 @@ dist-ssr
 kickbacks.vsix
 
 # Build and Temporary
-build
 dist-electron
 scratch
