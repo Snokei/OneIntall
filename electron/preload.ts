@@ -36,6 +36,9 @@ contextBridge.exposeInMainWorld('electronAPI', {
   openFile: (options: { title: string; filters: { name: string; extensions: string[] }[] }) =>
     ipcRenderer.invoke('dialog:open-file', options),
 
+  createSystemRestorePoint: () =>
+    ipcRenderer.invoke('system:create-restore-point'),
+
   // IPC Event Listeners (Main -> Renderer)
   onInstallProgress: (callback: (status: AppInstallStatus) => void) => {
     const subscription = (_event: any, status: AppInstallStatus) => callback(status);

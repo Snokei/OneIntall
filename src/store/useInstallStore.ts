@@ -67,6 +67,10 @@ interface InstallState {
 
   // Settings Loader
   loadSettings: () => Promise<void>;
+
+  // System Restore
+  isCreatingRestorePoint: boolean;
+  createSystemRestorePoint: () => Promise<boolean>;
 }
 
 // Convert json to initial packages
@@ -193,6 +197,7 @@ export const useInstallStore = create<InstallState>((set, get) => ({
   isConsoleOpen: false,
   activeConsoleTab: "unified",
   logs: { unified: [] },
+  isCreatingRestorePoint: false,
 
   setPackages: (packages) => set({ packages }),
   setScanning: (isScanning) => set({ isScanning }),
@@ -842,13 +847,33 @@ export const useInstallStore = create<InstallState>((set, get) => ({
         const settings = await electronAPI.getSettings();
         if (settings) {
           set({
-            concurrency: settings.parallelCount ?? 2,
-            installLocation: settings.installLocation ?? "",
+            concurrency: settings.parallelCount || 2,
+            installLocation: settings.installLocation || "",
           });
         }
       } catch (err) {
         console.error("Failed to load settings:", err);
       }
+    }
+  },
+
+  createSystemRestorePoint: async () => {
+    set({ isCreatingRestorePoint: true });
+    try {
+      const electronAPI = (window as any).electronAPI;
+      if (electronAPI && typeof electronAPI.createSystemRestorePoint === "function") {
+        await electronAPI.createSystemRestorePoint();
+        return true;
+      } else {
+        // Mock success in dev
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+        return true;
+      }
+    } catch (err) {
+      console.error("Failed to create restore point:", err);
+      return false;
+    } finally {
+      set({ isCreatingRestorePoint: false });
     }
   },
 }));

@@ -6,9 +6,6 @@ import { cn } from "@/lib/utils";
 export const FilterPills: React.FC = () => {
   const activeFilter = useInstallStore((state) => state.activeFilter);
   const setActiveFilter = useInstallStore((state) => state.setActiveFilter);
-  const isSettingsOpen = useInstallStore((state) => state.isSettingsOpen);
-  const setIsSettingsOpen = useInstallStore((state) => state.setIsSettingsOpen);
-
   const filters = [
     { id: "all", label: "All Catalog", icon: "LayoutGrid" },
     { id: "not-installed", label: "Not Installed", icon: "CircleDot" },
@@ -20,13 +17,12 @@ export const FilterPills: React.FC = () => {
     <div className="flex items-center justify-between border-b border-border/10 pb-4">
       <div className="flex flex-wrap items-center gap-2">
         {filters.map((pill) => {
-          const isActive = activeFilter === pill.id && !isSettingsOpen;
+          const isActive = activeFilter === pill.id;
           return (
             <button
               key={pill.id}
               onClick={() => {
-                setIsSettingsOpen(false);
-                setActiveFilter(pill.id);
+                setActiveFilter(pill.id as any);
               }}
               className={cn(
                 "flex items-center gap-2 px-3 py-1.5 text-sm font-bold rounded-xl border transition-all duration-300 select-none cursor-pointer backdrop-blur-md",
@@ -41,18 +37,6 @@ export const FilterPills: React.FC = () => {
           );
         })}
       </div>
-
-      <button
-        onClick={() => setIsSettingsOpen(!isSettingsOpen)}
-        className={cn(
-          "flex items-center justify-center p-2.5 rounded-xl border transition-all duration-300 cursor-pointer backdrop-blur-md",
-          isSettingsOpen
-            ? "bg-primary/20 border-primary/50 text-foreground shadow-lg shadow-primary/20"
-            : "bg-white/5 border-white/10 text-muted-foreground hover:bg-white/10 hover:border-white/20 hover:text-foreground"
-        )}
-      >
-        <LucideIcon name="Settings" size={16} />
-      </button>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import { dialog, ipcMain } from "electron";
 import * as fs from "fs";
+import { exec } from "child_process";
 import { UserSettings } from "../../src/types";
 import { SettingsService } from "../services/settings.service";
 import { WingetService } from "../services/winget.service";
@@ -157,4 +158,23 @@ export function registerIpcHandlers(
       }
     },
   );
+
+  ipcMain.handle("system:create-restore-point", async () => {
+    return new Promise((resolve, reject) => {
+      // Use Start-Process with -Verb RunAs to request UAC elevation
+      // Using Base64 encoding to prevent escaping issues
+      const script = 'Checkpoint-Computer -Description "OneInstall Restore Point" -RestorePointType "MODIFY_SETTINGS"';
+      const encodedScript = Buffer.from(script, 'utf16le').toString('base64');
+      const cmd = `powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "Start-Process powershell -Verb RunAs -ArgumentList '-NoProfile -ExecutionPolicy Bypass -EncodedCommand ${encodedScript}' -Wait"`;
+      
+      exec(cmd, (error: Error | null) => {
+        if (error) {
+          console.error("[IPC] error creating restore point:", error);
+          reject(error);
+          return;
+        }
+        resolve(true);
+      });
+    });
+  });
 }

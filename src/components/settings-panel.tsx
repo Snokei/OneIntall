@@ -1,5 +1,6 @@
 import LucideIcon from "@/components/ui/lucide-icon";
 import React from "react";
+import { useInstallStore } from "@/store/useInstallStore";
 
 export const SettingsPanel: React.FC = () => {
   return (
@@ -24,5 +25,7 @@ export const SettingsPanel: React.FC = () => {
     </div>
   );
 };
+
+
 
 export default SettingsPanel;

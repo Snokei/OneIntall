@@ -7,7 +7,9 @@ import {
   Terminal, 
   Palette, 
   Gamepad2, 
-  Code
+  Code,
+  ShieldAlert,
+  Loader2
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -48,6 +50,8 @@ export const ProfileDropdown: React.FC = () => {
   const applyProfile = useInstallStore((state) => state.applyProfile);
   const addLog = useInstallStore((state) => state.addLog);
   const setConsoleOpen = useInstallStore((state) => state.setConsoleOpen);
+  const isCreatingRestorePoint = useInstallStore((state) => state.isCreatingRestorePoint);
+  const createSystemRestorePoint = useInstallStore((state) => state.createSystemRestorePoint);
 
   // Close dropdown on click outside
   useEffect(() => {
@@ -175,6 +179,16 @@ export const ProfileDropdown: React.FC = () => {
     setIsOpen(false);
   };
 
+  const handleCreateRestorePoint = async () => {
+    const success = await createSystemRestorePoint();
+    if (success) {
+      alert("System Restore Point created successfully.");
+    } else {
+      alert("Failed to create System Restore Point. Please ensure you have administrative privileges.");
+    }
+    setIsOpen(false);
+  };
+
   return (
     <div className="relative shrink-0 font-sans" ref={dropdownRef}>
       <button
@@ -246,6 +260,31 @@ export const ProfileDropdown: React.FC = () => {
               <Download size={14} className="text-muted-foreground/80" />
               <span>Export Selected ({queue.length})</span>
             </button>
+            
+            <button
+              onClick={handleCreateRestorePoint}
+              disabled={isCreatingRestorePoint}
+              className={cn(
+                "flex items-center gap-3 w-full px-3 py-2 rounded-lg text-left text-xs font-bold text-muted-foreground hover:text-foreground hover:bg-white/5 transition-all cursor-pointer text-primary hover:text-primary",
+                isCreatingRestorePoint && "opacity-40 cursor-not-allowed hover:bg-transparent"
+              )}
+            >
+              {isCreatingRestorePoint ? (
+                <Loader2 size={14} className="text-primary/80 animate-spin" />
+              ) : (
+                <ShieldAlert size={14} className="text-primary/80" />
+              )}
+              <span>{isCreatingRestorePoint ? "Creating Restore Point..." : "Create System Restore Point"}</span>
+            </button>
+          </div>
+
+          <div className="h-px bg-white/5 my-2.5" />
+          
+          {/* About Developer */}
+          <div className="px-4 py-1.5 flex flex-col items-center justify-center opacity-80">
+            <p className="text-[10px] text-muted-foreground text-center">
+              Developed by <span className="font-bold text-foreground">Snokei</span>.
+            </p>
           </div>
         </div>
       )}
