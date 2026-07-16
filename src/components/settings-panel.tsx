@@ -10,16 +10,14 @@ export const SettingsPanel: React.FC = () => {
           <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-4">
             <LucideIcon name="Code" size={32} className="text-primary" />
           </div>
-          <h3 className="text-xl font-bold text-foreground">
-            OneInstall 
-          </h3>
+          <h3 className="text-xl font-bold text-foreground">OneInstall</h3>
           <p className="text-sm text-muted-foreground mt-2 text-center max-w-md">
             A lightning-fast, glassmorphic desktop application for managing
             Windows software packages.
             <br />
             <br />
             Proudly developed by{" "}
-            <span className="font-bold text-foreground">Neel</span>.
+            <span className="font-bold text-foreground">Snokei</span>.
           </p>
         </div>
       </div>
